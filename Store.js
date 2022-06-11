@@ -8,18 +8,18 @@ function Store({}) {
     
     const navigation = useNavigation();
     return (
-        <View style={{backgroundColor: 'black', height: '100%'}}>
+        <View style={{ height: '100%', backgroundColor: 'black', borderTopColor: "#7ef7bd", borderTopWidth: 1}}>
+            
             <ScrollView style={styles.scroll}> 
-            <Text style={{textAlign:'center', fontSize: 30, color: '#7ef7bd'}}>Games</Text>
             <View style={styles.containerButton}>
                 {
                     cards.map( card => {
                         const { id, title, description, stock, url } = card;
                         return (
-                            <Card key={id}>
+                            <Card key={id} >
                                     <Image 
                                         style={{width: '100%', height: 110,
-                                        borderTopRightRadius: 10, borderTopLeftRadius: 10}}
+                                        borderTopRightRadius: 8, borderTopLeftRadius: 8}}
                                         source={{uri: url}}
                                     />
                                     {/* <Text style={styles.text}>{title}</Text> */}
@@ -56,19 +56,17 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         alignItems: 'center', 
-        backgroundColor: '#2c2e2d',
-        borderRadius: 50,
         marginTop: 50,
         padding: 10,
         overflow: 'hidden',
-
         width: '95%',
         height: 'auto',
     },
 
     text: {
         color: 'black',
-        marginVertical: 4   
+        marginVertical: 4,
+        paddingVertical: 4,
     },
 
     scroll: {

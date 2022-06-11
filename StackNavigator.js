@@ -13,10 +13,12 @@ const DetailStackNavigator = () => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                backgroundColor: "#9AC4F8",
-                },
-                headerTintColor: "white",
-                headerBackTitle: "Back",
+                    backgroundColor: "black",
+                    borderColor: "#7ef7bd"
+                  },
+                  headerTintColor: "#7ef7bd",
+                  headerBackTitle: "Back",
+                  headerTitleAlign:'center'
             }}
         >
             <Stack.Screen name="Store" component={Store} />

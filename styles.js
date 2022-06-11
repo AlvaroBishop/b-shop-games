@@ -20,15 +20,17 @@ export default StyleSheet.create({
     box: {
         position: 'relative',
         borderRadius: 10,
+        borderColor: 'white',
         borderWidth: 1,
         height: 200,
-        width: '42%',
+        width: '40%',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'stretch',
         backgroundColor:'#57FCC5',
         paddingBottom: 10,
         margin: 10,
+        overflow: 'hidden'
     },
 
     boxText: {

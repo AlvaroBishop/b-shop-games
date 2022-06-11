@@ -9,9 +9,9 @@ const cards = [
     {
         id: 2,
         title: '',
-        description: 'Rock, Paper & Scissors',
+        description: 'PPoT',
         stock: 100,
-        url: 'https://media.istockphoto.com/vectors/rock-paper-scissors-body-parts-icon-set-vector-id1269211670'
+        url: 'https://scontent.fgdl9-1.fna.fbcdn.net/v/t1.6435-9/104201570_101132231646482_5785564535019651456_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEIHEdUignISBwQio3yCNW8wkEf_ZC-jRrCQR_9kL6NGoGokMH0msbX_j6am384fOt1q9SJdj2DpOEYr6us84vR&_nc_ohc=KZh7bU_T8QUAX9vDag-&_nc_ht=scontent.fgdl9-1.fna&oh=00_AT-6TiK0rC-2qKJ53eZ5v-_SqB4VI6UT_amp_aLEc_sbqw&oe=62CA5EC8'
     },
     {
         id: 3,

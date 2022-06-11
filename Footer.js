@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Button, Text, View } from 'react-native';
-import PropTypes from 'prop-types';
 import { useNavigation } from '@react-navigation/native';
 
 const Footer = () => {

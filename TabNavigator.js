@@ -25,12 +25,19 @@ const BottomTabNavigator = () => {
 
           return <Ionicons name={iconName} size={size} color={ color } />
         },
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: '#7ef7bd',
         tabBarInactiveTintColor: 'gray',
-        headerStyle: {
-          backgroundColor: "#9AC4F8",
+        tabBarStyle: {
+          backgroundColor: 'black',
+          borderTopColor: "#7ef7bd", 
+          borderTopWidth: 2,
         },
-        headerTintColor: "white",
+        headerStyle: {
+          backgroundColor: "black",
+          borderBottomColor: "#7ef7bd",
+          borderBottomWidth: 1,
+        },
+        headerTintColor: "#7ef7bd",
         headerBackTitle: "Back",
         headerTitleAlign:'center'
       })}
