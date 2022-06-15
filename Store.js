@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Button, View, Text, Image, ScrollView} from 'react-native';
+import {StyleSheet, Button, View, Text, Image, ScrollView,TouchableOpacity } from 'react-native';
 import Card from './Card';
 import cards from './cards';
 import { useNavigation } from '@react-navigation/native';
@@ -24,17 +24,20 @@ function Store({}) {
                                     />
                                     {/* <Text style={styles.text}>{title}</Text> */}
                                     <Text style={styles.text}>{description}</Text>
-                                    <Button 
-                                        title={`Jugar`}
+                                    <TouchableOpacity
+                                        style={styles.buttonLocation}
                                         onPress={() => navigation.push('Details', {
                                             title: title,
                                             description: description,
                                             stock: stock,
                                             url: url,
                                         })}
-                                        color='black'
-                                        
-                                    />
+                                    >
+                                        <View style={styles.button}>
+                                            <Text style={styles.buttonText}>Jugar</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                  
                             </Card>
                         )
                     })
@@ -62,16 +65,34 @@ const styles = StyleSheet.create({
         width: '95%',
         height: 'auto',
     },
-
     text: {
+        textAlign: 'center',
         color: 'black',
         marginVertical: 4,
         paddingVertical: 4,
     },
-
     scroll: {
         marginBottom: 90,
-    }
+    },
+
+    button: {
+        backgroundColor: 'black',
+        padding: 5,
+        width: '50%',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+    },
+    buttonLocation: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+
 })
 
 export default Store;
