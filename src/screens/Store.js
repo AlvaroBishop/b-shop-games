@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, Button, View, Text, Image, ScrollView,TouchableOpacity } from 'react-native';
-import Card from './Card';
-import cards from './cards';
+import {StyleSheet, View, Text, Image, ScrollView,TouchableOpacity } from 'react-native';
+import Card from '../../Card';
+import cards from '../../cards';
 import { useNavigation } from '@react-navigation/native';
 
-function Store({}) {
+function Store() {
     
     const navigation = useNavigation();
     return (
@@ -14,7 +14,7 @@ function Store({}) {
             <View style={styles.containerButton}>
                 {
                     cards.map( card => {
-                        const { id, title, description, stock, url } = card;
+                        const { id, description, url, screen } = card;
                         return (
                             <Card key={id} >
                                     <Image 
@@ -22,16 +22,10 @@ function Store({}) {
                                         borderTopRightRadius: 8, borderTopLeftRadius: 8}}
                                         source={{uri: url}}
                                     />
-                                    {/* <Text style={styles.text}>{title}</Text> */}
                                     <Text style={styles.text}>{description}</Text>
                                     <TouchableOpacity
                                         style={styles.buttonLocation}
-                                        onPress={() => navigation.push('Details', {
-                                            title: title,
-                                            description: description,
-                                            stock: stock,
-                                            url: url,
-                                        })}
+                                        onPress={() => navigation.push(`${screen}`)}
                                     >
                                         <View style={styles.button}>
                                             <Text style={styles.buttonText}>Jugar</Text>

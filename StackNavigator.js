@@ -2,8 +2,8 @@ import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-import DetailScreen from "./DetailScreen";
-import Store from "./Store";
+import Store from "./src/screens/Store";
+import GuessMyNumber  from "./src/screens/GuessMyNumber";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +22,7 @@ const DetailStackNavigator = () => {
             }}
         >
             <Stack.Screen name="Store" component={Store} />
-            <Stack.Screen name="Details" component={DetailScreen}  />
+            <Stack.Screen name="GuessMyNumber" component={GuessMyNumber}  />
         </Stack.Navigator>
         )
     }
