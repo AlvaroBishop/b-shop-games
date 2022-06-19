@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { DisplayGameState } from '../components/DisplayGameState';
+
 import piedra from '../../assets/piedra.png';
 import papel from '../../assets/papel.png';
 import tijeras from '../../assets/tijeras.png';
@@ -14,14 +16,11 @@ const PPoT = () => {
   const [IA, setIA] = useState(papel)
   const [marcadorJugador, setMarcadorJugador] = useState(jugadorPuntaje)
   const [marcadorIA, setMarcadorIA] = useState(iaPuntaje)
-  // const [displayStart, setDisplayStart] = useState('visible');
-  // const [displayGanaste, setDisplayGanaste] = useState('hidden');
-  // const [displayPerdiste, setDisplayPerdiste] = useState('hidden');
+  const [displayStart, setDisplayStart] = useState(true);
+  const [displayGanaste, setDisplayGanaste] = useState(false);
+  const [displayPerdiste, setDisplayPerdiste] = useState(false);
 
-  const iniciarJuego = () => {
-      setDisplayStart('hidden');
-      console.log("iniciar");
-  }
+ 
   const elegirJugada = (btnSeleccionado, jugada) => {
 
     switch(btnSeleccionado)
@@ -97,9 +96,42 @@ function actualizarMarcador() {
     if( jugadorPuntaje == 2) setDisplayGanaste('visible');
     if( iaPuntaje == 2) setDisplayPerdiste('visible');
 }
-  return (
+
+const reiniciarMarcador = () => {
+    jugadorPuntaje = 0;
+    iaPuntaje = 0;
+    actualizarMarcador();
+}
+return (
     <View style={styles.container}>
         
+        <DisplayGameState 
+            text='Start'
+            func={reiniciarMarcador}
+            state={{
+                display: displayStart,
+                setDisplay: setDisplayStart
+            }}
+            color='#7ef7bd'
+        />
+        <DisplayGameState 
+            text='Ganaste'
+            func={reiniciarMarcador}
+            state={{
+                display: displayGanaste,
+                setDisplay: setDisplayGanaste
+            }}
+            color='#0060FF'
+        />
+        <DisplayGameState 
+            text='Perdiste'
+            func={reiniciarMarcador}
+            state={{
+                display: displayPerdiste,
+                setDisplay: setDisplayPerdiste
+            }}
+            color='#FF1347'
+        />
         <Text style={styles.title}>Piedra Papel y Tijera</Text>
         <View style={styles.gameContainer}>
             <View >
