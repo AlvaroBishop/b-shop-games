@@ -30,11 +30,11 @@ const PPoT = () => {
             setJugada(jugada);
             break;
         case 'papel':
-            jugadorJugada = 1;
+            jugadorJugada = 2;
             setJugada(jugada);
             break;
         case 'tijeras':
-            jugadorJugada = 1;
+            jugadorJugada = 3;
             setJugada(jugada);
             break;
     }

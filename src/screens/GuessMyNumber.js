@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
 import List from '../components/List';
 
 
@@ -20,7 +20,6 @@ const calculateText = (number, random) => {
     }
 }
 
-const random = generateRandomNumber(101);
 
 const GuessNumber = () => {
     const [number, setNumber] = useState('')
@@ -28,6 +27,7 @@ const GuessNumber = () => {
     const [guessList, setGuessList] = useState([])
     const [win, setWin] = useState(false)
     const [count, setCount] = useState(0)
+    const [random, setRandom] = useState(generateRandomNumber(101))
 
 
     const handleOnChange = newNumber => {
@@ -36,42 +36,52 @@ const GuessNumber = () => {
 
     const handleOnPress = () => {
         const num = parseInt(number)
-        const numRand = parseInt(random)
-        const text = calculateText(num, numRand)
+        if(!isNaN(num))
+        {
+            const numRand = parseInt(random)
+            const text = calculateText(num, numRand)
 
-        if(num === numRand) setWin(true);
+            if(num === numRand) setWin(true);
 
-        setNumber("");
-        setMessage(text);
-        setGuessList([
-            num,
-            ...guessList
-        ]);
+            setNumber("");
+            setMessage(text);
+            
+                setGuessList([
+                    num,
+                    ...guessList
+                ]);
+            setCount(count + 1)
+        }
 
-        setCount(count + 1)
     }
     return (
         <View style={styles.game}>
-            <TextInput
-                style={styles.input}
-                autoFocus
-                placeholder='Guess My Number'
-                onChangeText={handleOnChange}
-                defaultValue = {number}
-            />
+            <View style={{flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
+                <TextInput
+                    style={styles.input}
+                    autoFocus
+                    placeholder='Guess My Number (1-100)'
+                    onChangeText={handleOnChange}
+                    defaultValue = {number}
+                    keyboardType='number-pad'
+                />
 
-            <Button 
-                title="Probar"
-                onPress={handleOnPress}
-            />
+                <TouchableOpacity 
+                    onPress={handleOnPress}
+                >
+                    <Text>Probar</Text>
+                </TouchableOpacity>
 
-            {
-                win 
-                    ? <Text> Felicidades, lo has adivinado en {count} intentos.</Text>
-                    : <Text>{message}</Text>
-            }
+                {
+                    win 
+                        ? <Text> Felicidades, lo has adivinado en {count} intentos.</Text>
+                        : <Text>{message}</Text>
+                }
+
+            </View>
 
             <List
+                styl={{flex: 1}}
                 data={mapItems(guessList)}
             />
         </View>
@@ -85,13 +95,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 400,
+    backgroundColor: 'red',
+    height: '100%',
   },
   
   input: {
     width: 200,
     textAlign: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    color: 'white'
+  },
+  list: {
+    backgroundColor: 'red',
+    flexDirection: 'row',
+
   }
 })
 
