@@ -5,7 +5,7 @@ const cards = [
         description: 'Guess My Number',
         stock: 10,
         url: 'https://content.instructables.com/ORIG/FGE/F6F0/K1NVATVK/FGEF6F0K1NVATVK.jpg?auto=webp',
-        screen: 'GuessMyNumber'
+        screen: 'GuessNumbers'
     },
     {
         id: 2,

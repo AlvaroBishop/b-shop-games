@@ -4,7 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 import HomeScreen from "./src/screens/HomeScreen";
-import { DetailStackNavigator } from "./StackNavigator";
+import { MainStackNavigator } from "./StackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +47,7 @@ const BottomTabNavigator = () => {
         name="Home" 
         component={HomeScreen} 
         />
-      <Tab.Screen name="Games" component={DetailStackNavigator} options={{ headerShown: false}}/>
+      <Tab.Screen name="Games" component={MainStackNavigator} options={{ headerShown: false}}/>
     </Tab.Navigator>
   );
 };

@@ -56,32 +56,33 @@ const GuessNumber = () => {
     }
     return (
         <View style={styles.game}>
-            <View style={{flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
+            <View style={styles.gameContainer}>
                 <TextInput
                     style={styles.input}
                     autoFocus
                     placeholder='Guess My Number (1-100)'
+                    placeholderTextColor='#7ef7bd'
                     onChangeText={handleOnChange}
                     defaultValue = {number}
                     keyboardType='number-pad'
                 />
 
                 <TouchableOpacity 
+                    style={styles.button}
                     onPress={handleOnPress}
                 >
-                    <Text>Probar</Text>
+                    <Text style={{fontSize: 15, padding: 5, fontWeight: 'bold', color: 'black'}}>Probar</Text>
                 </TouchableOpacity>
 
                 {
                     win 
-                        ? <Text> Felicidades, lo has adivinado en {count} intentos.</Text>
-                        : <Text>{message}</Text>
+                        ? <Text style={styles.winText}> Felicidades, lo has adivinado en {count} intentos.</Text>
+                        : <Text style={styles.winText}>{message}</Text>
                 }
 
             </View>
-
+            <Text style={{color: '#7ef7bd', fontSize: 15, marginTop: 30}}>Numeros Intentados: </Text>
             <List
-                styl={{flex: 1}}
                 data={mapItems(guessList)}
             />
         </View>
@@ -92,24 +93,34 @@ const GuessNumber = () => {
 
 const styles = StyleSheet.create({
   game: {
-    flexDirection: 'column',
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'red',
-    height: '100%',
+    backgroundColor: 'black',
+    borderTopColor: "#7ef7bd", 
+    borderTopWidth: 1,
   },
-  
+  gameContainer: {
+    alignItems: 'center',
+    width: '100%',
+  },
+  winText: {
+    color: '#7ef7bd', 
+    fontSize: 15,
+    marginTop: 30,
+  },
   input: {
-    width: 200,
     textAlign: 'center',
-    marginBottom: 10,
-    color: 'white'
+    margin: 35,
+    color: '#7ef7bd',
+    fontSize: 20,
   },
-  list: {
-    backgroundColor: 'red',
-    flexDirection: 'row',
-
+  button: {
+    padding: 10,
+    backgroundColor: '#7ef7bd',
+    borderTopLeftRadius: 30,
+    borderBottomEndRadius: 30,
   }
+ 
 })
 
 export default GuessNumber;
