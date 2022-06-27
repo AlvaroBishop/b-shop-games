@@ -7,7 +7,7 @@ import GuessMyNumber  from "./src/screens/GuessMyNumber";
 import GuessYourNumber  from "./src/screens/GuessYourNumber";
 import { ChooseYourGameScreen } from "./src/screens/ChooseYourGameScreen";
 import PPoT from "./src/screens/PPoT";
-
+import MemoryGame from "./src/screens/MemoryGame";
 const Stack = createNativeStackNavigator();
 
 
@@ -27,6 +27,7 @@ const MainStackNavigator = () => {
             <Stack.Screen name="Store" component={Store} />
             <Stack.Screen name="GuessNumbers" component={GuessStackNavigator}  options={{ headerShown: false}}/>
             <Stack.Screen name="PPoT" component={PPoT}  />
+            <Stack.Screen name="MemoryGame" component={MemoryGame}  />
         </Stack.Navigator>
     )
 }

@@ -8,7 +8,6 @@ export const ChooseYourGameScreen = () => {
     <View style={styles.game}>
         <View >
             <TouchableOpacity
-                /* style={styles.buttonLocation} */
                 onPress={() => navigation.push('GuessMyNumber')}
             >
                 <View style={styles.button}>
@@ -16,7 +15,6 @@ export const ChooseYourGameScreen = () => {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
-                /* style={styles.buttonLocation} */
                 onPress={() => navigation.push('GuessYourNumber')}
             >
                 <View style={styles.button}>

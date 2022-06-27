@@ -18,10 +18,10 @@ const cards = [
     {
         id: 3,
         title: '',
-        description: 'Proximamente',
+        description: 'Memory Game',
         stock: 5,
-        url: 'https://i.ytimg.com/vi/_NJa5C6bpLo/sddefault.jpg',
-        screen: 'Next'
+        url: 'https://www.brainzilla.com/media/cache/ab/9f/ab9fdae354b43e8572630882b9fe5539.png',
+        screen: 'MemoryGame'
     }
 
 ];
